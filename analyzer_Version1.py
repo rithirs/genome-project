@@ -50,3 +50,7 @@ def save_csv(population, filename="dataset.csv"):
         writer = csv.DictWriter(f, keys)
         writer.writeheader()
         writer.writerows(population)
+
+def generate_graphs(*args, **kwargs):
+    # TODO: Add your implementation here
+    pass
