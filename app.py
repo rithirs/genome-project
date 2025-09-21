@@ -1,5 +1,5 @@
 from flask import Flask, render_template, send_file, redirect, url_for, request
-from analyzer import generate_population, analyze_traits, save_csv
+from analyzer import generate_population, analyze_traits, save_csv, generate_graphs
 import os
 
 app = Flask(__name__)
