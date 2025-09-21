@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>About Genome Project</h2>
+<section>
+    <h4>What is the Genome Project?</h4>
+    <p>A research initiative to analyze genetic traits in populations and understand dominant characteristics.</p>
+</section>
+<section>
+    <h4>History</h4>
+    <p>The Genome Project started as an effort to map and analyze human genetic diversity, with applications in medicine, anthropology, and forensics.</p>
+</section>
+<section>
+    <h4>Usefulness / Applications</h4>
+    <ul>
+        <li>Medical research</li>
+        <li>Personalized healthcare</li>
+        <li>Anthropological studies</li>
+        <li>Trait prediction</li>
+    </ul>
+</section>
+<section>
+    <h4>Contributors</h4>
+    <ul>
+        {% for name in contributors %}
+        <li>{{ name }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

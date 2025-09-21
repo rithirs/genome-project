@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dominant Traits</h2>
+{% if loading %}
+    <div class="loading-screen">
+        <img src="{{ url_for('static', filename='dna.gif') }}" alt="Loading..." width="120">
+        <p>Analyzing genome data... Please wait.</p>
+    </div>
+{% else %}
+    <table class="table table-striped w-auto">
+        <thead><tr>
+            <th>Trait</th>
+            <th>Dominant Value</th>
+        </tr></thead>
+        <tbody>
+            {% for trait, value in summary.items() %}
+            <tr>
+                <td>{{ trait.title() }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Trait Distributions</h3>
+    <div class="row">
+        {% for trait in summary.keys() %}
+        <div class="col-md-4">
+            <h5>{{ trait.title() }}</h5>
+            <img src="{{ url_for('static', filename='graphs/' + trait + '_bar.png') }}" class="img-fluid mb-2">
+            <img src="{{ url_for('static', filename='graphs/' + trait + '_pie.png') }}" class="img-fluid mb-2">
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('reload_population') }}" class="btn btn-success">Generate New Population</a>
+    <a href="{{ url_for('download_csv') }}" class="btn btn-primary">Download CSV</a>
+{% endif %}
+{% endblock %}
