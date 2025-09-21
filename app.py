@@ -9,6 +9,7 @@ population = generate_population()
 graphs = generate_graphs(population)
 summary = analyze_traits(population)
 
+
 @app.route('/')
 def index():
     global population, graphs, summary
