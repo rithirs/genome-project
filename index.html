@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Genome Project</title>
+    <title>Genome Project Files</title>
 </head>
 <body>
-    <h1>Welcome to the Genome Project!</h1>
-    <!-- You can add more content here -->
+    <h1>Files in Genome Project Repository</h1>
+    <ul>
+        {% for file in files %}
+        <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
