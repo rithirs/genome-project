@@ -1,8 +1,17 @@
-from flask import Flask, render_template, send_file, redirect, url_for, request
-from analyzer import generate_population, analyze_traits, save_csv, generate_graphs
+from flask import Flask, render_template
 import os
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    # This will list all files in your repo directory
+    files = os.listdir(os.path.dirname(__file__))
+    # You can pass this list to your template
+    return render_template('index.html', files=files)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 # In-memory population dataset
 population = generate_population()
